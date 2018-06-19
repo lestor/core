@@ -24,8 +24,8 @@
 		"psr/log": "1.*"
 	},
 	"require-dev": {
-		"kohana/unittest":     "3.4.*@dev",
-		"kohana/koharness":    "*@dev",
+		"lestor/unittest":     "3.4.*@dev",
+		"lestor/koharness":    "*@dev",
 		"mikey179/vfsStream":  "^1.6"
 	},
 	"suggest": {
