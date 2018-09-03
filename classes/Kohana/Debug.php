@@ -34,7 +34,7 @@ class Kohana_Debug {
 			$output[] = Debug::_dump($var, 1024);
 		}
 
-		return '<pre class="debug">'.implode("\n", $output).'</pre>';
+		return '<pre class="debug">'.implode(PHP_EOL, $output).'</pre>';
 	}
 
 	/**
@@ -143,7 +143,7 @@ class Kohana_Debug {
 			}
 			elseif (isset($var[$marker]))
 			{
-				$output[] = "(\n$space$s*RECURSION*\n$space)";
+				$output[] = "(".PHP_EOL."$space$s*RECURSION*".PHP_EOL."$space)";
 			}
 			elseif ($level < $limit)
 			{
@@ -167,10 +167,10 @@ class Kohana_Debug {
 			else
 			{
 				// Depth too great
-				$output[] = "(\n$space$s...\n$space)";
+				$output[] = "(".PHP_EOL."$space$s...".PHP_EOL."$space)";
 			}
 
-			return '<small>array</small><span>('.count($var).')</span> '.implode("\n", $output);
+			return '<small>array</small><span>('.count($var).')</span> '.implode(PHP_EOL, $output);
 		}
 		elseif (is_object($var))
 		{
@@ -193,7 +193,7 @@ class Kohana_Debug {
 			}
 			elseif (isset($objects[$hash]))
 			{
-				$output[] = "{\n$space$s*RECURSION*\n$space}";
+				$output[] = "{".PHP_EOL."$space$s*RECURSION*".PHP_EOL."$space}";
 			}
 			elseif ($level < $limit)
 			{
@@ -224,10 +224,10 @@ class Kohana_Debug {
 			else
 			{
 				// Depth too great
-				$output[] = "{\n$space$s...\n$space}";
+				$output[] = "{".PHP_EOL."$space$s...".PHP_EOL."$space}";
 			}
 
-			return '<small>object</small> <span>'.get_class($var).'('.count($array).')</span> '.implode("\n", $output);
+			return '<small>object</small> <span>'.get_class($var).'('.count($array).')</span> '.implode(PHP_EOL, $output);
 		}
 		else
 		{
